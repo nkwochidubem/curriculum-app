@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent client
   stages {
     stage('Checkout Code') {
       steps {
@@ -15,14 +15,14 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -f curriculum-front/Dockerfile -t fuze365/curriculum-front:latest .'
+        sh 'docker build -f curriculum-front/Dockerfile -t nkwochidubem/curriculum-front:latest .'
       }
     }
 
     stage('Log into Dockerhub') {
       environment {
-        DOCKERHUB_USER = 'fuze365'
-        DOCKERHUB_PASSWORD = 'gv1&3Ea9W##onDQAMUG&41CvZ7h1d1'
+        DOCKERHUB_USER = 'nkwochidubem'
+        DOCKERHUB_PASSWORD = 'icui4cu5517'
       }
       steps {
         sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
@@ -31,7 +31,7 @@ pipeline {
 
     stage('Push') {
       steps {
-        sh 'docker push fuze365/curriculum-front:latest'
+        sh 'docker push nkwochidubem/curriculum-front:latest'
       }
     }
 
