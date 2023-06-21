@@ -1,18 +1,7 @@
 pipeline {
-  agent {
-    node {
-      label 'client'
-    }
-
-  }
+  agent { label 'client' }
   stages {
     stage('Checkout Code') {
-      agent {
-        node {
-          label 'client'
-        }
-
-      }
       steps {
         git(url: 'https://github.com/nkwochidubem/curriculum-app', branch: 'dev')
       }
@@ -20,8 +9,7 @@ pipeline {
 
     stage('log') {
       steps {
-        sh '''ls -al
-'''
+        sh 'ls -al'
       }
     }
 
