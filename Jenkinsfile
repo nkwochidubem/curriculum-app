@@ -12,5 +12,12 @@ pipeline {
       }
     }
 
+    stage('log') {
+      steps {
+        sh '''ls -al
+'''
+      }
+    }
+
   }
 }
