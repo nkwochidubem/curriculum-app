@@ -5,6 +5,7 @@ RUN ls -l
 RUN npm install
 COPY curriculum-front ./
 RUN ls -l
+ENV NODE_OPTIONS=--max_old_space_size=2048
 RUN npm run build
 COPY curriculum-front/nodeServer.js dist/nodeServer.js
 WORKDIR /usr/src/app/dist
