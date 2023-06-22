@@ -51,7 +51,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'docker-compose up -d -f devops/ansible/docker-compose.yml'
+        sh 'docker-compose up -d ./devops/ansible/docker-compose.yml'
       }
     }
 
