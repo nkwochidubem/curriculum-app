@@ -44,5 +44,11 @@ pipeline {
       }
     }
 
+    stage('Deploy') {
+      steps {
+        sh 'docker-compose up -d -f devops/ansible/docker-compose.yml'
+      }
+    }
+
   }
 }
