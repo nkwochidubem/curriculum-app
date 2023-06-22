@@ -2,7 +2,7 @@ version: "3"
 services:
   app:
     container_name: curriculum-front
-    image: index.docker.io/fuze365/curriculum-front:latest
+    image: index.docker.io/nkwochidubem/curriculum-front:latest
     env_file:
       - .env.front
     networks:
@@ -14,7 +14,7 @@ services:
       - "8080:8080"
   api:
     container_name: curriculum-back
-    image: index.docker.io/fuze365/curriculum-back:latest
+    image: index.docker.io/nkwochidubem/curriculum-back:latest
     env_file:
       - .env.back
       - .env.db
