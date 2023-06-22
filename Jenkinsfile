@@ -13,9 +13,15 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Build Frontend') {
       steps {
         sh 'docker build -f curriculum-front/Dockerfile -t nkwochidubem/curriculum-front:latest .'
+      }
+    }
+
+    stage('Build backend') {
+      steps {
+        sh 'docker build -f curriculum-back/Dockerfile -t nkwochidubem/curriculum-back:latest .'
       }
     }
 
@@ -32,6 +38,9 @@ pipeline {
     stage('Push') {
       steps {
         sh 'docker push nkwochidubem/curriculum-front:latest'
+      }
+      steps {
+        sh 'docker push nkwochidubem/curriculum-back:latest'
       }
     }
 
