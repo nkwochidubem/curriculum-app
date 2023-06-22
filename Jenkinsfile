@@ -35,10 +35,13 @@ pipeline {
       }
     }
 
-    stage('Push') {
+    stage('Push Frontend') {
       steps {
         sh 'docker push nkwochidubem/curriculum-front:latest'
       }
+    }
+
+    stage('Push Backend') {
       steps {
         sh 'docker push nkwochidubem/curriculum-back:latest'
       }
