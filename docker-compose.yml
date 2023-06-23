@@ -5,6 +5,7 @@ services:
     image: index.docker.io/nkwochidubem/curriculum-front:latest
     env_file:
       - .env.front
+      - .env.local
     networks:
       - local_net
     depends_on:
@@ -17,7 +18,6 @@ services:
     image: index.docker.io/nkwochidubem/curriculum-back:latest
     env_file:
       - .env.back
-      - .env.db
     networks:
       - local_net
     depends_on:
@@ -29,8 +29,6 @@ services:
     image: mongo:4.2.0-bionic
     volumes:
       - /data/db:/data/db
-    env_file:
-      - .env.db
     networks:
       - local_net
     ports:
